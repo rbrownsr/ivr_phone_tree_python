@@ -18,13 +18,13 @@ def welcome():
               "Enter your response, followed by the pound key")
     return twiml(response)
 
-
+Users/Rodney/Documents/GitHub/ivr_phone_tree_python/views.py
 @app.route('/ivr/menu', methods=['POST'])
 def menu():
     selected_option = request.form['Digits']
     option_actions = {'700': _give_instructions}
 
-    if option_actions.has_key(selected_option):
+    if option_actions in (selected_option):
         response = twilio.twiml.Response()
         option_actions[selected_option](response)
         return twiml(response)
@@ -39,7 +39,7 @@ def planets():
                       '3': "+12027336386",
                       "4": "+12027336637"}
 
-    if option_actions.has_key(selected_option):
+    if option_actions in (selected_option):
         response = twilio.twiml.Response()
         response.dial(option_actions[selected_option])
         return twiml(response)
